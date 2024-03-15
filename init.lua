@@ -378,12 +378,12 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- Enable telescope's file browser
-      vim.keymap.set('n', '<leader>fb', function()
+      vim.keymap.set('n', '<leader>bf', function()
         require('telescope').extensions.file_browser.file_browser {
           path = '%:p:h',
           select_buffer = true,
         }
-      end, { desc = '[F]ile [B]rowser' })
+      end, { desc = '[B]rowse [F]iles' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
