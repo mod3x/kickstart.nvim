@@ -281,6 +281,7 @@ require('lazy').setup({
 
       -- Document existing key chains
       require('which-key').register {
+        ['<leader>b'] = { name = '[B]rowse', _ = 'which_key_ignore' },
         ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
         ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
@@ -300,7 +301,10 @@ require('lazy').setup({
     opts = {},
     config = function()
       local trouble = require 'trouble'
-      vim.keymap.set('n', '<leader>to', trouble.open, { desc = '[O]pen' })
+
+      vim.keymap.set('n', '<leader>tt', function()
+        trouble.toggle 'workspace_diagnostics'
+      end, { desc = '[T]roubles [T]oggle' })
     end,
   },
 
